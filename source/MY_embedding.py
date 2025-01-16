@@ -80,11 +80,11 @@ def pipeline(idx, start_row, end_row):
                 print(f"now processing {str(index)} instances...")
             if start_row <= index <= end_row:
                 try:
-                    cps = row[62]
+                    cps = row[58]
                     url = row[2]  # Assuming third column contains the URL
                     top_domain = row[0]
                     fqdn = extract_fqdn(top_domain)
-                    # print(cps, url, top_domain)
+                    # print(cps, url, top_domain, fqdn)
                 except Exception as err:
                     print(err)
                     print("err1")
@@ -211,7 +211,7 @@ def pipeline(idx, start_row, end_row):
                 writer.writerow(row)
 
 processes = []
-file_openwpm = "/yopo-artifact/WebGraph/result_webgraph_unmod/merged_features_with_labelled.csv"
+file_openwpm = "/yopo-artifact/WebGraph/result_webgraph_unmod/merged_features_with_labelled_exclude_flow.csv"
 data_openwpm = pd.read_csv(file_openwpm)
 num_total = len(data_openwpm)
 num_core = 32

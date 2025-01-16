@@ -395,8 +395,6 @@ def extract_JS_Features_shine(file_name, _isHTML, timeout=None):
         SETSTOR=r"(Storage\.setItem)|(Storage\[[^]]+\] *=)|(Storage\.[^=;\n]+(?!;\n)=)|(Storage *=)"
         GETSTOR=r"(Storage\.get)|(Storage\[[^]]+\](?!=)*(?=\n|;))|(Storage\.[\w]+(?!=)(?=;|\n))|(Storage(?!=)(?=;|\s))"
         GETCOOK=r"(cookies?\.get)|(cookies?\[[^]]+\](?!=)*(?=\n|;))|(cookies?\.[\w]+(?!=)(?=;|\n))|(cookies?(?!=)(?=;|\s))"
-        
-
 
         if not _isHTML:
             with open(PATHTOPROCESSING+'/'+file_name+'.js','r',encoding='UTF8') as readf:
@@ -577,4 +575,4 @@ def extract_JS_Features_shine(file_name, _isHTML, timeout=None):
     except TimeoutError:
         print("@@@Function execution timed out@@@")
     finally:
-        signal.alarm(0)  # Cancel the alarm
+        signal.alarm(0)
